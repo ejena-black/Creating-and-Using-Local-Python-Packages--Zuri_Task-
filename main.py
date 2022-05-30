@@ -46,4 +46,30 @@ while True:
     print(f'Player ({player_choice}) : CPU ({com}) \n')
 
 
-    
+    # Winner check
+    if player_choice == com:
+            print('It\'s a tie \nPlay again')
+
+    elif player_choice == 'Rock':
+        if com == 'Paper':
+            print('Computer Wins')
+            break
+        elif com == 'Scissors':
+            print('Player Wins')
+            break
+
+    elif player_choice == 'Paper':
+        if com == 'Rock':
+            print('Player Wins')
+            break
+        elif com == 'Scissors':
+            print('Computer Wins')
+            break
+
+    elif player_choice == 'Scissors':
+        if com == 'Rock':
+            print('Computer Wins')
+            break
+        elif com == 'Paper':
+            print('Player Wins')
+            break
