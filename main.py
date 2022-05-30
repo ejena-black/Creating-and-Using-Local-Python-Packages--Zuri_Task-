@@ -18,8 +18,8 @@ def computer_move():
 
 
 # Game prompt
-print('Welcome to the Rock, Paper, Scissors game  \nThis game is Player vs CPU')
-print('"R" is for "Rock"  \n"P" is for "Paper" \n"S" is for "Scissors" ')
+print('Welcome to the Rock, Paper, Scissors game  \nThis game is Player vs CPU  \nYour avaliable moves are:')
+print('"R" for "Rock"  \n"P" for "Paper" \n"S" for "Scissors" ')
 
 # Game loop
 while True:
@@ -43,12 +43,12 @@ while True:
             print('Invalid input, Please pick from the options given \n')
 
     # Player and Computer move displayed
-    print(f'Player ({player_choice}) : CPU ({com}) \n')
+    print(f'\nPlayer ({player_choice}) : CPU ({com}) \n')
 
 
     # Winner check
     if player_choice == com:
-            print('It\'s a tie \nPlay again')
+            print('It\'s a tie Play again \n')
 
     elif player_choice == 'Rock':
         if com == 'Paper':
