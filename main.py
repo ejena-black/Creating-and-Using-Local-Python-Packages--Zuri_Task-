@@ -16,28 +16,34 @@ def computer_move():
     return computer_choice
 
 
-# Player_logic
-while True:
-    player_choice = input('Pick a move "R", "P", "S":  ')
-    player_choice = player_choice.upper()
-
-    if player_choice in game_options:
-        if player_choice == 'R':
-            player_choice= 'Rock'
-        elif player_choice == 'P':
-            player_choice = 'Paper'
-        elif player_choice == 'S':
-            player_choice = 'Scissors'
-        break
-        
-    else:
-        print('Invalid input, Please pick from the options given \n')
-    
-
-
-
 
 # Game prompt
 print('Welcome to the Rock, Paper, Scissors game  \nThis game is Player vs CPU')
 print('"R" is for "Rock"  \n"P" is for "Paper" \n"S" is for "Scissors" ')
 
+# Game loop
+while True:
+    com = computer_move()
+    
+    # Player_logic
+    while True:
+        player_choice = input('Pick a move "R", "P", "S":  ')
+        player_choice = player_choice.upper()
+
+        if player_choice in game_options:
+            if player_choice == 'R':
+                player_choice= 'Rock'
+            elif player_choice == 'P':
+                player_choice = 'Paper'
+            elif player_choice == 'S':
+                player_choice = 'Scissors'
+            break
+            
+        else:
+            print('Invalid input, Please pick from the options given \n')
+
+    # Player and Computer move displayed
+    print(f'Player ({player_choice}) : CPU ({com}) \n')
+
+
+    
