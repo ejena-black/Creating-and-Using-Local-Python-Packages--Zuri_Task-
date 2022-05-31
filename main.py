@@ -1,19 +1,28 @@
 import random
 
+# Game 
 game_options = ['R', 'P', 'S']
-
+game_options_moves = ['Rock', 'Paper', 'Scissors']
+game = dict(zip(game_options, game_options_moves))
 
 # Computer_logic
 def computer_move():
     computer_choice = random.choice(game_options)
-    if computer_choice == 'R':
-        computer_choice= 'Rock'
-    elif computer_choice == 'P':
-        computer_choice = 'Paper'
-    elif computer_choice == 'S':
-        computer_choice = 'Scissors'
+    if computer_choice in game:
+        return game[computer_choice]
 
-    return computer_choice
+
+# Player_logic
+def player_move():
+    while True:
+        player_choice = input('Pick a move "R", "P", "S":  ')
+        player_choice = player_choice.upper()
+
+        if player_choice in game:
+            return game[player_choice]
+            
+        else:
+            print('Invalid input, Please pick from the options given \n')
 
 
 
@@ -21,36 +30,21 @@ def computer_move():
 print('Welcome to the Rock, Paper, Scissors game  \nThis game is Player vs CPU  \nYour avaliable moves are:')
 print('"R" for "Rock"  \n"P" for "Paper" \n"S" for "Scissors" ')
 
-# Game loop
+# Main game logic
 while True:
     com = computer_move()
+    player = player_move()
     
-    # Player_logic
-    while True:
-        player_choice = input('Pick a move "R", "P", "S":  ')
-        player_choice = player_choice.upper()
-
-        if player_choice in game_options:
-            if player_choice == 'R':
-                player_choice= 'Rock'
-            elif player_choice == 'P':
-                player_choice = 'Paper'
-            elif player_choice == 'S':
-                player_choice = 'Scissors'
-            break
-            
-        else:
-            print('Invalid input, Please pick from the options given \n')
 
     # Player and Computer move displayed
-    print(f'\nPlayer ({player_choice}) : CPU ({com}) \n')
+    print(f'\nPlayer ({player}) : CPU ({com}) \n')
 
 
     # Winner check
-    if player_choice == com:
+    if player == com:
             print('It\'s a tie Play again \n')
 
-    elif player_choice == 'Rock':
+    elif player == 'Rock':
         if com == 'Paper':
             print('Computer Wins')
             break
@@ -58,7 +52,7 @@ while True:
             print('Player Wins')
             break
 
-    elif player_choice == 'Paper':
+    elif player == 'Paper':
         if com == 'Rock':
             print('Player Wins')
             break
@@ -66,7 +60,7 @@ while True:
             print('Computer Wins')
             break
 
-    elif player_choice == 'Scissors':
+    elif player == 'Scissors':
         if com == 'Rock':
             print('Computer Wins')
             break
